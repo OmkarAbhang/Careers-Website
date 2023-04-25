@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="/static/style.css">
+  <!-- <script src="/static/main.js"></script> -->
+	<script src="https://kit.fontawesome.com/53b89dd49e.js" crossorigin="anonymous"></script>
+  
+</head>
+  
+ <!-- email method -->
+ <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+ <script type="text/javascript">
+ (function() {
+ emailjs.init("epVHGFQIo-D_O1Zqw");
+ })();
+ </script> -->
+<body>
+	<div class="container" id="container">
+		<!-- Sign Up -->
+    <div class="form-container sign-up-container">
+			<form action="#">
+				<h1>Create Account</h1>
+				<input type="text" placeholder="Name" />
+				<input type="email" placeholder="Email" id="upmail" />
+				<!-- <input type="password" placeholder="Password" /> -->
+				<div class="password">
+					<div class="passimg" onclick="upimg(this)" id="s01"><img src="/static/10.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s02"><img src="/static/11.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s03"><img src="/static/12.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s04"><img src="/static/13.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s05"><img src="/static/14.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s06"><img src="/static/15.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s07"><img src="/static/16.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s08"><img src="/static/17.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s09"><img src="/static/18.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s10"><img src="/static/19.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s11"><img src="/static/20.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s12"><img src="/static/21.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s13"><img src="/static/22.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s14"><img src="/static/23.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="upimg(this)" id="s15"><img src="/static/24.png" alt="" class="patimg"></div>
+				</div>
+				<button id="signupbtn"  onclick="signup()">Sign Up</button>
+			</form>
+		</div>
+
+    <!-- Sign In -->
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Sign in</h1>
+				<input type="email" placeholder="Email" id="inmail"/>
+				<!-- <input type="password" autocomplete="current-password" required placeholder="Password" /> -->
+				<div class="password">
+					<div class="passimg" onclick="inimg(this)" id="s01"><img src="/static/10.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s02"><img src="/static/11.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s03"><img src="/static/12.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s04"><img src="/static/13.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s05"><img src="/static/14.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s06"><img src="/static/15.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s07"><img src="/static/16.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s08"><img src="/static/17.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s09"><img src="/static/18.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s10"><img src="/static/19.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s11"><img src="/static/20.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s12"><img src="/static/21.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s13"><img src="/static/22.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s14"><img src="/static/23.png" alt="" class="patimg"></div>
+					<div class="passimg" onclick="inimg(this)" id="s15"><img src="/static/24.png" alt="" class="patimg"></div>
+				</div>
+				<!-- <a  onclick="sendMail2()">Forgot your password?</a> -->
+				<button onclick="signin()">Sign In</button>
+			</form>
+		</div>
+    
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Hi👋,there!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal info</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+<script>
+  const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+let uppass = [];
+let inpass = [];
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+});
+
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove('right-panel-active');
+});
+// adding and removing border
+function upimg(element) {
+    console.log("Runing js");
+    var Image = element.querySelector('img');
+    if (Image) {
+        if (Image.classList.contains('clicked')) {
+            Image.classList.remove('clicked');
+            uppass.splice(uppass.indexOf(element.id), 1);
+            // console.log(element.id);
+            // console.log(uppass);
+        }
+        else {
+            Image.classList.add('clicked');
+            uppass.push(element.id);
+            // console.log(element.id);
+            // console.log(uppass);
+        }
+    }
+}
+
+function inimg(element) {
+    var Image = element.querySelector('img');
+    if (Image) {
+        if (Image.classList.contains('clicked')) {
+            Image.classList.remove('clicked');
+            inpass.splice(inpass.indexOf(element.id), 1);
+            // console.log(element.id);
+            // console.log(inpass);
+        }
+        else {
+            Image.classList.add('clicked');
+            inpass.push(element.id);
+            // console.log(element.id);
+            // console.log(inpass);
+        }
+    }
+}
+// element image recognition
+function signup() {
+    sessionStorage.setItem("upname", document.getElementById('upmail').value);
+    sessionStorage.setItem("uppass", uppass);
+    var myText = "Account Created Succesfully";
+    alert(myText);
+}
+
+// image pattern authentication
+var v2 = new Boolean(false);
+function signin() {
+    let str = document.getElementById('inmail').value;
+    let array = sessionStorage.getItem("uppass");
+    let check1 = array.localeCompare(inpass.toString());
+    if ((!str.localeCompare(sessionStorage.getItem("upname"))) && !check1) {
+        var myText = "Login is successful";
+        alert(myText);
+        NewTab();
+        
+    }
+    else{
+        var myText = "Login Failed";
+        alert(myText);
+   
+        sendMail3();
+       
+
+    }
+}
+ function sendMail3(){
+    emailjs.send('service_7q1sn6s', 'template_v7f98gs')
+    .then(function(res){
+        // console.log("Success", res.status);
+        alert("mail sent successfully");
+    })
+}
+function sendMail2(){
+    emailjs.send('service_7q1sn6s', 'template_ogw30ms')
+    .then(function(res){
+        // console.log("Success", res.status);
+        alert("mail sent successfully");
+    })
+}
+
+function NewTab() {
+    window.open(
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+}
+</script>
+</html>
