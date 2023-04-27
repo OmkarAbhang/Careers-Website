@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title> Register </title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">			
-	</head>
-	<body></br></br></br></br></br>
-		<div align="center">
-		<div align="center" class="border">
-			<div class="header">
-				<h1 class="word">Register</h1>
-			</div></br></br></br>
-			<h2 class="word">
-				<form action="{{ url_for('register') }}" method="post">
-				<div class="msg">{{ msg }}</div>
-					<input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
-					<input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br>
-					<input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/></br></br>
-					<input type="submit" class="btn" value="Sign Up"></br>
-				</form>
-			</h2>
-			<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
-		</div>
-		</div>
-	</body>
+  <head>
+    <title> Graphical Authentication System </title>
+    <script>
+      let password = [];
+
+      function updatePassword(image) {
+        if (password.includes(image)) {
+          password = password.filter(item => item !== image);
+        } else {
+          password.push(image);
+        }
+        document.getElementById('password').value = password.join(',');
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Graphical Authentication System</h1>
+    <form action="/register" method="post">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <br>
+      <br>
+      <label for="email">Name:</label>
+      <input type="text" id="name" name="name">
+      <br>
+      <br>
+      <label>Select images in order:</label>
+      <br>
+      <input type="checkbox" id="image1" name="password" value="image1" onclick="updatePassword(this.value)">
+      <label for="image1">
+        <img src="/static/10.png" alt="Image 1">
+      </label>
+      <br>
+      <input type="checkbox" id="image2" name="password" value="image2" onclick="updatePassword(this.value)">
+      <label for="image2">
+        <img src="/static/11.png" alt="Image 2">
+      </label>
+      <br>
+      <input type="checkbox" id="image3" name="password" value="image3" onclick="updatePassword(this.value)">
+      <label for="image3">
+        <img src="/static/12.png" alt="Image 3">
+      </label>
+      <br>
+      <input type="hidden" id="password" name="password">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>
